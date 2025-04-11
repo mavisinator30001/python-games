@@ -157,9 +157,3 @@ if suit_input == suit(pulled_card_suit):
 else:
     print('pulled card was', suit(pulled_card_suit), 'So close! Try again next time!')
     exit()
-
-
-
-
-print(red_or_black(pulled_card_red_or_black))
-print(pulled_card_red_or_black)
