@@ -10,5 +10,5 @@
 
 # Known issues:
 
-### In Ride_the_Bus the win case does not give points to the player
+### ~~In Ride_the_Bus the win case does not give points to the player~~ __fixed__
 ### There is no requirements.txt file with required Python libraries
