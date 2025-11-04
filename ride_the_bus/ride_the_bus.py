@@ -56,7 +56,7 @@ def inside_or_outside(pulled_red_black, pulled_higher_lower, pulled_inside_outsi
     pulled_higher_lower = pulled_higher_lower[0]
     pulled_inside_outside = pulled_inside_outside[0]
 
-    if pulled_red_black >= pulled_inside_outside >= pulled_higher_lower: #or pulled_red_black <= pulled_inside_outside <= pulled_higher_lower:
+    if pulled_red_black >= pulled_inside_outside >= pulled_higher_lower or pulled_red_black <= pulled_inside_outside <= pulled_higher_lower:
         outside_or_inside = "inside"
     else:
         outside_or_inside = "outside"
@@ -149,8 +149,10 @@ red_or_black_input = input('red or black? ')
 # determine whether or not user's prediction was correct and exit if wrong
 if red_or_black_input == red_or_black(pulled_card_red_or_black):
     print('pulled card was,', pulled_card_red_or_black)
+    wager(points_wagered, outcome)
+    points_wagered =+ points_wagered
 else:
-    print('pulled card was', red_or_black(pulled_card_red_or_black), "try again next time!")
+    print('pulled card was', red_or_black(pulled_card_red_or_black), "with card:", pulled_card_red_or_black, "\ntry again next time!")
     outcome = "lose"
     wager(points_wagered, outcome)
     exit()
@@ -161,8 +163,10 @@ higher_or_lower_input = input('higher or lower? ')
 # determine whether or not user's prediction was correct and exit if wrong
 if higher_or_lower_input == higher_or_lower(pulled_card_higher_or_lower, pulled_card_red_or_black):
     print('pulled card was,', pulled_card_higher_or_lower)
+    wager(points_wagered, outcome)
+    points_wagered =+ points_wagered
 else:
-    print('pulled card was', higher_or_lower(pulled_card_higher_or_lower, pulled_card_red_or_black), 'try again next time!')
+    print('pulled card was', higher_or_lower(pulled_card_higher_or_lower, pulled_card_red_or_black), 'with card:', pulled_card_higher_or_lower, '\ntry again next time!')
     outcome = "lose"
     wager(points_wagered, outcome)
     exit()
@@ -173,8 +177,10 @@ inside_or_outside_input = input('inside or outside? ')
 # Determine whether inside/outside prediction was correct
 if inside_or_outside_input == inside_or_outside(pulled_card_red_or_black, pulled_card_higher_or_lower, pulled_card_inside_or_outside):
     print('pulled card was,', pulled_card_inside_or_outside)
+    wager(points_wagered, outcome)
+    points_wagered =+ points_wagered
 else:
-    print('pulled card was', inside_or_outside(pulled_card_red_or_black, pulled_card_higher_or_lower, pulled_card_inside_or_outside), 'try again next time!')
+    print('pulled card was', inside_or_outside(pulled_card_red_or_black, pulled_card_higher_or_lower, pulled_card_inside_or_outside), 'with card:', pulled_card_inside_or_outside, '\ntry again next time!')
     outcome = "lose"
     wager(points_wagered, outcome)
     exit()
@@ -185,9 +191,9 @@ suit_input = input('What is the suit of the next card?')
 # Determine whether suit prediction was correct
 if suit_input == suit(pulled_card_suit):
     print('pulled card was,', pulled_card_suit, 'You won, congratulations!')
+    wager(points_wagered, outcome)
 else:
-    print('pulled card was', suit(pulled_card_suit), 'So close! Try again next time!')
+    print('pulled card was', suit(pulled_card_suit), "with card:", pulled_card_suit, '\nSo close! Try again next time!')
     outcome = "lose"
     wager(points_wagered, outcome)
     exit()
-
